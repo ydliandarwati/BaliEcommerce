@@ -1,0 +1,49 @@
+<!-- Main content section starts -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Collections</h1>
+    </div>
+    </br></br>
+    <!--button to add admin -->
+    <a href="index.php?road=goAddCollection" class="btn-primary">Add Collection</a>
+    </br></br></br>
+        
+    <table class="tbl-full">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Category Name</th>
+            <th>Featured</th>
+            <th>Active</th>
+            <th>Action</th>
+        </tr>
+            
+        <!--a loop over all categories to be printed in the table-->
+        <?php foreach($data as $value) :?>        
+            <tr>
+                <td><?= $value['id'] ?></td>
+                <td><?= $value['title'] ?></td>
+                <td><?= $value['description'] ?></td>
+                <td><?php if($value['image_name'] != "") { ?>
+                    <img src="../public/img/collection/<?=$value['image_name']?>" width="100px">
+                    <?php }
+                    else {
+                    echo "No Image added";
+                    }?> 
+                </td>
+                <td><?= $value['category_name'] ?></td>
+                <td><?= $value['featured'] ?></td>
+                <td><?= $value['active'] ?></td>
+                        
+                <td>
+                    <a href="index.php?road=goUpdateCollection&id=<?=$value['id']?>" class="btn-secondary">Update Collection</a>
+                    <a href="index.php?road=deleteCollection&id=<?=$value['id']?>" class="btn-danger">Delete Collection</a>
+                </td>
+            </tr>
+        <?php endforeach?>
+    </table>
+</div>
+<!-- Main content section ends -->
+        

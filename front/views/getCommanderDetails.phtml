@@ -1,0 +1,31 @@
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Shipping Details</h1>
+                
+        <form action="index.php?road=validateCart" method="POST">
+            <table class="tbl-30">
+                <tr>
+                    <td>Full Name:</td>
+                    <td><input type="text" name="fullname" required  value=<?= $data["name"]?>></td>
+                </tr>
+                        
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" pattern=".+@.+.(com|net|org)" required value=<?=$data['email']?> ></td>
+                </tr>
+                        
+                <tr>
+                    <td>Shipping Address:</td>
+                    <td><input type="text" name="shipAdress" placeholder="Full address for shipping." required/></td>
+                </tr>
+                         
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Finalize My Order" class="btn-secondary">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,46 @@
+<?php
+// login message
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['login'];
+        unset($_SESSION['login']);
+    }
+?>
+
+<!--registration form-->
+<form action="index.php?road=register" method="POST">	
+	<h4 class="text-success">New here? Register your account to purchase your favorite item!</h4>
+	<hr style="border-top:1px groovy #000;">
+	<div class="form-group">
+		<label>Firstname</label>
+		<input type="text" class="form-control" name="firstname" required />
+	</div>
+	<div class="form-group">
+		<label>Lastname</label>
+		<input type="text" class="form-control" name="lastname" required />
+	</div>
+	<div class="form-group">
+		<label>Username</label>
+		<input type="text" class="form-control" name="username" required/>
+	</div>
+	<div class="form-group">
+		<label>Email</label>
+		<input type="email" class="form-control" name="email"
+		pattern=".+@.+.(com|net|org)"  required/> 
+	</div>
+	<div class="form-group">
+		<label>Password</label>
+		<input type="password" class="form-control" name="password" required minlength="6"/>
+	</div>
+	<br />
+	<div class="form-group">
+		<button class="btn btn-primary form-control" name="register">Register</button>
+	</div>
+</form>
+
+<br>
+<!--button to go to login-->
+<a href="index.php?road=goLogin"><button class="btn btn-primary">Go to login</button></a>
+
+
+   
+   

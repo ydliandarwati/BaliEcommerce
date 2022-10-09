@@ -1,0 +1,29 @@
+<div class="main-content">
+    <div class="wrapper">
+    <h1>Update Admin</h1>-
+        <!--As soon as one submits this from, the updateAdmin model is executed, and modifies the info in database-->
+        <form action="index.php?road=updateAdmin" method="POST">
+            <table class="tbl-30">
+                <tr>
+                    <td>Full Name:</td>
+                    <td>
+                        <input type="text" name="fullname" value="<?= $data['fullname'] ?>">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" value="<?= $data['username'] ?>">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                        <input type="submit" name="submit" value="Update Admin" class="btn-secondary">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

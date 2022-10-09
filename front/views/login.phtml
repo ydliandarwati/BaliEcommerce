@@ -1,0 +1,27 @@
+<?php
+// login message
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['login'];
+        unset($_SESSION['login']);
+    }
+?>
+
+<form action="index.php?road=login" method="post">
+    <div class="form-group">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button class="btn btn-primary form-control" name="login">Login</button>
+    </div>
+    <br>
+</form> 
+<!--button to go to register-->
+<a href="index.php?road=goRegister"><button class="btn btn-primary form-control" name="register">Go to register</button></a>
+
+
+
+
+

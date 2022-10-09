@@ -1,0 +1,60 @@
+
+<div class="main-content">
+    <div class="wrapper">
+    <h1>Update Collection</h1>
+    <br><br>
+    
+    
+        <form action="index.php?road=updateOrder"  method="POST" enctype="multipart/form-data">
+            <table class="tbl-30">
+                    <tr>
+                        <td> Article Name: </td>
+                        <td>
+                            <p><?=$data['article_name'] ?></p> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Quantity:</td>
+                        <td>
+                            <input type="number" name="quantity" min="1" value="<?= $data['quantity'] ?>">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Price:</td>
+                        <td>
+                            <input type="number" name="price" min="0" value="<?= $data['article_price'] ?>">
+                        </td>
+                    </tr>  
+                    
+                    <tr>
+                        <td>Customer Address:</td>
+                        <td>
+                            <input type="text" name="address" value="<?= $data['customer_address'] ?>">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td> Order Status: </td>
+                        <td>
+                            <select name="status">
+                                <option value="pending">pending</option>
+                                <option value="pending">validated</option>
+                                <option value="pending">shipped</option>
+                                <option value="pending">delivered</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2">
+                            <input type="hidden" name="id" value="<?=$data['id']; ?>">
+                            <input type="submit" name="submit" value="Submit Changes" class="btn-secondary">
+                        </td>
+                    </tr>
+                </table>
+        </form>
+    </div>
+</div>
+                 

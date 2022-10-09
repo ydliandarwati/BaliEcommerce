@@ -1,0 +1,41 @@
+<!--This is the view for adding admin-->
+<!--As soon as one pushes the submit button to add the admin, addAdmin case in index.php is called which calls for addAdmin controller. -->
+<!--This controller does the job of connection to database and adding the admin.-->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Add Admin</h1>
+            <?php
+            // print addaAdmin variable: shows if admin has been added successfully or no
+                if(isset($_SESSION['addadmin'])) {
+                    echo $_SESSION['addadmin'];
+                    unset($_SESSION['addadmin']);
+                }
+            ?>
+                
+        <form action="index.php?road=addAdmin" method="POST">
+            <table class="tbl-30">
+                <tr>
+                    <td>Full Name:</td>
+                    <td><input type="text" name="fullname" placeholder="Insert your name" required/></td>
+                </tr>
+                        
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" placeholder="Your username" required/></td>
+                </tr>
+                        
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" placeholder="Your password" required minlength="6"/></td>
+                </tr>
+                        
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+

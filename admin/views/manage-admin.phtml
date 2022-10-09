@@ -1,0 +1,54 @@
+<!-- Main content section starts -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Admins</h1>
+    </div>
+    </br></br>
+    <!--button to add admin -->
+    <a href="index.php?road=goAddAdmin" class="btn-primary">Add Admin</a>
+    </br></br></br>
+            
+
+    <?php
+        // list of all session variables to print, depending on the situation
+        $session_var =  array('updatepwd', 'updateadmin', 'addadmin', 'deleteadmin');
+        foreach ($session_var as $s ) {
+            if(isset($_SESSION[$s])) {
+                echo $_SESSION[$s];
+                unset($_SESSION[$s]);
+            }
+        }
+    ?>
+            
+            
+            
+    <table class="tbl-full">
+        <tr>
+            <th>Admin ID</th>
+            <th>Full Name</th>
+            <th>User name</th>
+            <th>Actions</th>
+        </tr>
+            
+            
+        <!--a loop over all admins to be printed in the table-->
+        <?php foreach($data as $value) :?>
+            <tr>
+                <td><?= $value['id'] ?></td>
+                <td><?= $value['fullname'] ?></td>
+                <td><?= $value['username'] ?></td>
+                <td>
+                    <!--3 buttons defined: each is linked to its corresponding file -->
+                    <!--change password and update admin need an html form, so phtml file-->
+                    <!--delete admin is simply a ph p file with a call to deleteAdmin controller-->
+                    <a href="index.php?road=goUpdatePassword&id=<?=$value['id']?>"  class="btn-primary">Change Password</a>
+                    <a href="index.php?road=goUpdateAdmin&id=<?=$value['id']?>" class="btn-secondary">Update Admin</a>
+                    <a href="index.php?road=deleteAdmin&id=<?=$value['id']?>" class="btn-danger">Delete Admin</a>
+        
+                </td>
+            </tr>
+        <?php endforeach?>
+    </table>
+</div>
+
+    

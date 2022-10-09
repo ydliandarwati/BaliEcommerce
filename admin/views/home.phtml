@@ -1,0 +1,32 @@
+<!-- Main content section starts -->
+<div class="main-content">
+    <div class="wrapper">
+        <?php
+            if(isset($_SESSION['login'])) {
+                echo $_SESSION['login'];
+                unset($_SESSION['login']);
+            }
+        ?>
+
+        <h1>Dashboard</h1>
+        <!--dashboard with 3 numbers: #categories, #collections, #orders-->
+        <div class="col-4 text-center">
+                <h1><?=$catCount?></h1>
+                    Categories
+        </div>
+                
+        <div class="col-4 text-center">
+                <h1><?=$colCount?></h1>
+                Collections
+        </div>
+                
+        <div class="col-4 text-center">
+            <h1><?=$ordCount?></h1>
+            Orders
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- Main content section ends -->
+        

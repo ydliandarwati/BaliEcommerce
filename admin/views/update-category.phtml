@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="wrapper">
+    <h1>Update Category</h1>
+    <br><br>
+    
+    
+        <form action="index.php?road=updateCategory"  method="POST" enctype="multipart/form-data">
+            <table class="tbl-30">
+                <tr>
+                    <td> Title: </td>
+                    <td>
+                        <input type="text" name="title" value="<?=$data['title']; ?>">
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td> Current Image: </td>
+                        <td><?php if($data['image_name'] != "") { ?>
+                        <img src="../public/img/category/<?=$data['image_name']?>" width="100px">
+                        <?php }
+                            else {
+                                echo "No Image added";
+                            }?> 
+                        </td>
+                </tr>
+                <tr>
+                    <td> New Image: </td>
+                    <td>
+                         <input type="file" name="image">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td> Featured: </td>
+                    <td>
+                        <input <?php if($data['featured']=="Yes"){echo "checked";} ?> type="radio" name="featured" value="Yes"> Yes 
+                        <input <?php if($data['featured']=="No"){echo "checked";} ?> type="radio" name="featured" value="No"> No
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td> Active: </td>
+                    <td>
+                        <input <?php if($data['active']="Yes"){echo "checked";} ?> type="radio" name="active" value="Yes"> Yes
+                        <input <?php if($data['active']=="No"){echo "checked";} ?> type="radio" name="active" value="No"> No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="current_image" value="<?= $data['image_name']; ?>">
+                        <input type="hidden" name="id" value="<?=$data['id']; ?>">
+                        <input type="submit" name="submit" value="Submit Category" class="btn-secondary">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+    

@@ -1,0 +1,57 @@
+<section class="jewelry-collection">
+    <div class="container">
+    <h2 class="text-center">Explore Collections</h2>
+        
+        <!--a loop over all collections to be printed in the table-->
+        <?php foreach($col as $value) :?>
+        <form action="index.php?road=addCart&id=<?=$value['id']?>" method="POST">
+            <div class="jewelry-collection-box">
+    
+                <?php if($value['image_name'] != "") { ?>
+                    <div class="jewelry-collection-img">
+                        <img src="../public/img/collection/<?=$value['image_name']?>" alt=<?=$value['title']?> class="img-responsive img-curve" >
+                    </div>
+                <?php
+                }
+                else { echo "No Image added";}
+                ?> 
+                <div class="jewelry-collection-desc">
+                    <h4><?= $value['title'] ?></h4>
+                    <p class="jewelry-price"><?= $value['price'] ?></p>
+                    <p class="jewelry-detail"><?= $value['description'] ?></p>
+                    <br>
+                    <input type="hidden" name="prod_id" value="<?= $value['id'] ?>">
+                    <input type="number" class="product-quantity" name="quantity" value="1" min="1" size="2" />
+                    <input type="submit" name="add_to_cart" value="Add to cart" class="btn btn-primary">
+                    <br>
+                </div>
+            </div>
+        </form>
+        <?php endforeach?>
+    </div>
+</section>
+
+<div class="clearfix"></div>
+
+
+<section class="categories">
+    <div class="container">
+    <h2 class="text-center">Categories</h2>
+        <table class="tbl-full">
+            <!--a loop over all categories to be printed in the table-->
+            <?php foreach($cat as $value) :?>
+                <a href="index.php?road=showCategoryItems&title=<?=$value['title']?>">
+                    <div class="box-3 float-container">
+                        <?php if($value['image_name'] != "") { ?>
+                            <img src="../public/img/category/<?=$value['image_name']?>" alt=<?=$value['title']?> class="img-responsive img-curve" >
+                        <?php
+                        }
+                        else { echo "No Image added";}
+                        ?> 
+                        <h3 class="float-text text-white"><?=$value['title']?></h3>
+                    </div>
+                </a>
+            <?php endforeach?>
+        </table>
+    </div>
+</section>

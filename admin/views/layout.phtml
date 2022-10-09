@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<!--We have 3 parts: header, templete (main content), and footer-->
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="BaliJewelry">
+		<link rel="stylesheet" href="public/css/style.css">
+	</head>
+	
+	<body>
+		<header>
+			<div class="container">
+				<span>
+					<a href="index.php?road=home" class="logo">
+						<img src="../public/upload/logobali.png" alt="Logo">
+					</a>
+				</span>
+					<nav>
+				<?php require_once('menu.phtml'); ?>
+			</nav>
+			</div>
+		</header>
+	
+		<main class="container">
+			<?php include $template ?>
+		</main>
+	
+		<footer>
+			<?php require_once('footer.phtml'); ?>
+		</footer>
+	</body>
+</html>

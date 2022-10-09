@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Category</h1>
+        <br><br><br>
+         <?php
+            if(isset($_SESSION['add'])) {
+                echo $_SESSION['add'];
+                unset ($_SESSION['add']);
+            }
+
+        ?>
+        <!-- button add category -->
+        <a href="index.php?road=goAddCategory" class="btn-primary">Add Cateogry</a>
+        <br><br><br>
+        
+        <table class="tbl-full">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Action</th>
+            </tr>
+            
+            <!--a loop over all categories to be printed in the table-->
+            <?php foreach($data as $value) :?>
+            
+                <tr>
+                    <td><?= $value['id'] ?></td>
+                    <td><?= $value['title'] ?></td>
+                    <!--display the image-->
+                    <td><?php if($value['image_name'] != "") { ?>
+                    <img src="../public/img/category/<?=$value['image_name']?>" width="100px">
+                    <?php }
+                        else {
+                            echo "No Image added";
+                        }?> 
+                    </td>
+                    <td><?= $value['featured'] ?></td>
+                    <td><?= $value['active'] ?></td>
+                    
+                    <td>
+                        <!--3 buttons defined: each is linked to its corresponding file -->
+                        <!--change password and update admin need an html form, so phtml file-->
+                        <!--delete admin is simply a ph p file with a call to deleteAdmin controller-->
+                        <a href="index.php?road=goUpdateCategory&id=<?=$value['id']?>" class="btn-secondary">Update Category</a>
+                        <a href="index.php?road=deleteCategory&id=<?=$value['id']?>" class="btn-danger">Delete Category</a>
+        
+                    </td>
+                </tr>
+            <?php endforeach?>
+        </table>
+    </div>
+</div>

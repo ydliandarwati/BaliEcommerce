@@ -1,0 +1,88 @@
+
+<div class="main-content">
+    <div class="wrapper">
+    <h1>Update Collection</h1>
+    <br><br>
+    
+    
+        <form action="index.php?road=updateCollection"  method="POST" enctype="multipart/form-data">
+            <table class="tbl-30">
+                    <tr>
+                        <td> Title: </td>
+                        <td>
+                            <input type="text" name="title" value="<?=$data['title'] ?>">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Description:</td>
+                        <td>
+                            <input type="text" name="description" value="<?= $data['description'] ?>"> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Price:</td>
+                        <td>
+                            <input type="number" name="price" value="<?= $data['price'] ?>">
+                        </td>
+                    </tr>  
+                    
+                     <tr>
+                        <td> Current Image: </td>
+                            <td><?php if($data['image_name'] != "") { ?>
+                            <img src="../public/img/collection/<?=$data['image_name']?>" width="100px">
+                            <?php }
+                                else {
+                                    echo "No Image added";
+                                }?> 
+                            </td>
+                    </tr>
+                    <tr>
+                        <td> New Image: </td>
+                        <td>
+                             <input type="file" name="image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Category: </td>
+                        <td>
+                            <select name="category">
+                                <option value="<?= $data['category_name'] ?>"><?= $data['category_name']?></option>
+                                <?php foreach($data_all as $value) :?>
+                                    <option value="<?= $value['title']?>"><?= $value['title']?></option>
+                                <?php endforeach ?>
+                                <?php if (count($data_all) == 0) : ?>
+                                    <option value="0">No Category Found</option>
+                                <?php endif ?>
+                                </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td> Featured: </td>
+                        <td>
+                            <input <?php if($data['featured']=="Yes"){echo "checked";} ?> type="radio" name="featured" value="Yes"> Yes 
+                            <input <?php if($data['featured']=="No"){echo "checked";} ?> type="radio" name="featured" value="No"> No
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td> Active: </td>
+                        <td>
+                            <input <?php if($data['active']="Yes"){echo "checked";} ?> type="radio" name="active" value="Yes"> Yes
+                            <input <?php if($data['active']=="No"){echo "checked";} ?> type="radio" name="active" value="No"> No
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="hidden" name="current_image" value="<?= $data['image_name']; ?>">
+                            <input type="hidden" name="id" value="<?=$data['id']; ?>">
+                            <input type="submit" name="submit" value="Update Collection" class="btn-secondary">
+                        </td>
+                    </tr>
+                </table>
+        </form>
+    </div>
+</div>
+                 
